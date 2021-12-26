@@ -6,9 +6,9 @@ name: Android-Build
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ develop ]
+    branches: [ main ]
   pull_request:
-    branches: [ develop ]
+    branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -31,9 +31,6 @@ jobs:
       # Check out Code
       - name: Check out Code
         uses: actions/checkout@v2
-        with:
-          token: '${{ secrets.FETCH_GITHUB_TOKEN }}'
-          submodules: recursive
           
       - name: Build the code
         run: ./gradlew build
